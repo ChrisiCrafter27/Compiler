@@ -32,7 +32,6 @@ public class Scanner {
             addTokenAndSymbol(content.substring(0, index));
             content = content.substring(index + 1);
             index = 0;
-            return;
         }
         switch (state) {
             case q0 -> {
@@ -61,8 +60,6 @@ public class Scanner {
             case q2 -> {
                 if(Character.isDigit(content.charAt(index))) {
                     state = State.q2;
-                } else if(content.charAt(index) == ':') {
-                    state = State.q3;
                 } else {
                     state = State.fail;
                 }

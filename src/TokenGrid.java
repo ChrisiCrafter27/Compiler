@@ -11,17 +11,8 @@ public class TokenGrid {
     }
 
     public void add(SymbolList symbolList, String symbol) {
-        boolean added = symbolList.putIfAbsent(symbol);
-        TokenType tokenType;
-        if(added) {
-            tokenType = (Integer.getInteger(symbol) == null) ? TokenType.SIGNIFIER : TokenType.DIGITS;
-        } else {
-            System.out.println(added);
-            System.out.println(symbolList);
-            System.out.println(this);
-            System.out.println(symbol);
-            tokenType = symbolList.tokenType(symbolList.get().indexOf(symbol)).getType();
-        }
+        symbolList.putIfAbsent(symbol);
+        TokenType tokenType = symbolList.tokenType(symbolList.get().indexOf(symbol));
         tokens.add(new Token(tokenType, symbolList.get().indexOf(symbol)));
     }
 

@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.util.List;
 
 public class Main {
-    private static final SymbolList symbolList = new SymbolList(List.of(".", ":=", "PROGRAM", "BEGIN", "END"));
+    private static final SymbolList symbolList = new SymbolList(List.of(".", ":="), List.of("PROGRAM", "BEGIN", "END"));
 
     public static void main(String[] args) {
         String fileName = args.length > 0 ? args[0] : "text.txt";
@@ -22,7 +22,11 @@ public class Main {
                 System.out.println("TokenGrid:");
                 System.out.println(scanner.tokenGrid());
             } else {
-                System.err.println("Scanner failed!");
+                System.out.println("SymbolList:");
+                System.out.println(scanner.symbolList());
+                System.out.println("TokenGrid:");
+                System.out.println(scanner.tokenGrid());
+                System.out.println("Scanner failed!");
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
