@@ -1,1 +1,7 @@
-PROGRAM BEGIN AA := 15 END.
+PROGRAM
+    BEGIN
+        BEGIN
+            AA := 153
+            WASD := 9
+        END
+    END.
