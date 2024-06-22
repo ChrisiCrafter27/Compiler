@@ -1,6 +1,5 @@
 package compiler;
 
-import compiler.compile.Compiler;
 import compiler.parse.Parser;
 import compiler.scan.Scanner;
 import compiler.scan.SymbolList;
@@ -19,7 +18,6 @@ public class Main {
     ));
 
     public static void main(String[] args) {
-
         //read
         String fileName = args.length > 0 ? args[0] : "text.txt";
         StringBuilder content = new StringBuilder();
@@ -37,7 +35,6 @@ public class Main {
         Scanner scanner = new Scanner(SymbolList.copy(symbolList), content.toString());
         if(scanner.scan()) {
             System.out.println("Scan succeeded!");
-            //System.out.println(scanner);
         } else {
             System.err.println("Scan failed!");
             return;
@@ -47,19 +44,8 @@ public class Main {
         Parser parser = new Parser(scanner.tokenOrder());
         if(parser.parse()) {
             System.out.println("Parse succeeded!");
-            //System.out.println(parser);
         } else {
             System.err.println("Parse failed!");
-            return;
-        }
-
-        //compile
-        Compiler compiler = new Compiler();
-        if(compiler.compile()) {
-            System.out.println("Compilation succeeded!");
-            //System.out.println(compiler);
-        } else {
-            System.err.println("Compilation failed!");
         }
     }
 }
