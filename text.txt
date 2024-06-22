@@ -1,5 +1,6 @@
 PROGRAM
     BEGIN
+        BC := 153
         BEGIN
             AA := 153
             WASD := 9

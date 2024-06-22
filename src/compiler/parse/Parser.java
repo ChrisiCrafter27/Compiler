@@ -19,7 +19,6 @@ public class Parser {
         state = ParserState.start;
         while(tokenOrder.hasNext() && !stack.isEmpty()) {
             readNextToken();
-            System.out.println(stack);
             if(state == ParserState.fail) return false;
         }
         return !stack.isEmpty() && stack.pop().equals("#");
